@@ -1,10 +1,10 @@
-# Spatium
+# Nuri
 
-Spatium is framework for brainage.net.
+Nuri(the Korean word for 'world') is framework for brainage.net.
 
-## What is Spatium?
+## What is Nuri?
 
-Spatium is framework for brainage.net. To increase productivity and quality of brainage.net softwares.
+Nuri is framework for brainage.net. To increase productivity and quality of brainage.net softwares.
 
 ## License
 

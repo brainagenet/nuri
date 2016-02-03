@@ -103,20 +103,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- jasypt -->
-        <dependency>
-            <groupId>org.jasypt</groupId>
-            <artifactId>jasypt</artifactId>
-            <version>1.9.2</version>
-        </dependency>
-
-        <!-- apache shiro -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.2.4</version>
-        </dependency>
-
         <!-- test -->
         <dependency>
             <groupId>junit</groupId>

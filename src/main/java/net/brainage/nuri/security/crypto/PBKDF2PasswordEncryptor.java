@@ -61,7 +61,7 @@ public class PBKDF2PasswordEncryptor implements PasswordEncryptor {
         return BaseEncoding.base64().encode(encrypt(plainTextPassword.toCharArray(), salt));
     }
 
-    public byte[] encrypt(char[] plainTextPassword, byte[] salt) {
+    protected byte[] encrypt(char[] plainTextPassword, byte[] salt) {
         try {
             SecretKeyFactory f = SecretKeyFactory.getInstance(ALGORITHM_NAME);
             KeySpec keySpec = new PBEKeySpec(plainTextPassword, salt, iterations, keyLength * 8);

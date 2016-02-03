@@ -35,8 +35,8 @@ import java.security.spec.KeySpec;
 public class PBKDF2PasswordEncryptor implements PasswordEncryptor {
 
     private static final String ALGORITHM_NAME = "PBKDF2WithHmacSHA256";
-    private static final int DEFAULT_ITERATIONS = 1000;
-    private static final int DEFAULT_KEY_LENGTH = 32; // 32bit == 256byte
+    private static final int DEFAULT_ITERATIONS = 20000;
+    private static final int DEFAULT_KEY_LENGTH = 32; // 32 byte == 256 bit
 
     private final int iterations;
     private final int keyLength;

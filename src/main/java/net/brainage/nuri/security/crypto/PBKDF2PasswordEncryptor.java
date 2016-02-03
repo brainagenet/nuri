@@ -19,7 +19,6 @@
 package net.brainage.nuri.security.crypto;
 
 import com.google.common.io.BaseEncoding;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.SecretKey;
@@ -28,7 +27,6 @@ import javax.crypto.spec.PBEKeySpec;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.util.Base64;
 
 /**
  * @author <a href="mailto:ms29.seo@gmail.com">ms29.seo</a>

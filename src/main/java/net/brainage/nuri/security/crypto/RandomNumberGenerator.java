@@ -22,10 +22,10 @@ package net.brainage.nuri.security.crypto;
  *
  * @author <a href="mailto:ms29.seo@gmail.com">ms29.seo</a>
  */
-public interface SaltGenerator {
+public interface RandomNumberGenerator {
 
     int getKeyLength();
 
-    byte[] generateSalt();
+    byte[] generate();
 
 }

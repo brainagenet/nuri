@@ -34,41 +34,41 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
-public class SaltGeneratorTest {
+public class RandomNumberGeneratorTest {
 
     @Configuration
     public static class AppConfig {
         @Bean
-        public SaltGenerator saltGenerator() {
-            return new SecureRandomSaltGenerator();
+        public RandomNumberGenerator saltGenerator() {
+            return new SecureRandomNumberGenerator();
         }
 
         @Bean
-        public SaltGenerator saltGenerator2() {
-            return new SecureRandomSaltGenerator(24);
+        public RandomNumberGenerator saltGenerator2() {
+            return new SecureRandomNumberGenerator(24);
         }
     }
 
     @Autowired
-    private SaltGenerator saltGenerator;
+    private RandomNumberGenerator randomNumberGenerator;
 
     @Autowired
-    private SaltGenerator saltGenerator2;
+    private RandomNumberGenerator randomNumberGenerator2;
 
     @Test
     @Repeat(100)
     public void testGenerateSalt() {
-        byte[] salt = saltGenerator.generateSalt();
+        byte[] salt = randomNumberGenerator.generate();
         System.out.println("salt: " + BaseEncoding.base64().encode(salt));
-        Assert.assertEquals(saltGenerator.getKeyLength(), salt.length);
+        Assert.assertEquals(randomNumberGenerator.getKeyLength(), salt.length);
     }
 
     @Test
     @Repeat(100)
     public void testGenerateSalt24() {
-        byte[] salt = saltGenerator2.generateSalt();
+        byte[] salt = randomNumberGenerator2.generate();
         System.out.println("salt: " + BaseEncoding.base64().encode(salt));
-        Assert.assertEquals(saltGenerator2.getKeyLength(), salt.length);
+        Assert.assertEquals(randomNumberGenerator2.getKeyLength(), salt.length);
     }
 
 }

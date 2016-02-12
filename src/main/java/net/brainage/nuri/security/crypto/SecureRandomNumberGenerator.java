@@ -24,7 +24,7 @@ import java.security.SecureRandom;
 /**
  * @author <a href="mailto:ms29.seo@gmail.com">ms29.seo</a>
  */
-public class SecureRandomSaltGenerator implements SaltGenerator {
+public class SecureRandomNumberGenerator implements RandomNumberGenerator {
 
     /**
      * The default algorithm to be used for secure random number
@@ -38,11 +38,11 @@ public class SecureRandomSaltGenerator implements SaltGenerator {
 
     private final int keyLength;
 
-    public SecureRandomSaltGenerator() {
+    public SecureRandomNumberGenerator() {
         this(DEFAULT_KEY_LENGTH);
     }
 
-    public SecureRandomSaltGenerator(int keyLength) {
+    public SecureRandomNumberGenerator(int keyLength) {
         try {
             this.secureRandom = SecureRandom.getInstance(DEFAULT_SECURE_RANDOM_ALGORITHM);
         } catch (NoSuchAlgorithmException e) {
@@ -57,7 +57,7 @@ public class SecureRandomSaltGenerator implements SaltGenerator {
     }
 
     @Override
-    public byte[] generateSalt() {
+    public byte[] generate() {
         byte[] bytes = new byte[this.keyLength];
         this.secureRandom.nextBytes(bytes);
         return bytes;

@@ -39,8 +39,8 @@ public class PasswordEncryptorTest {
     @Configuration
     public static class AppConfig {
         @Bean
-        public SaltGenerator saltGenerator() {
-            return new SecureRandomSaltGenerator();
+        public RandomNumberGenerator saltGenerator() {
+            return new SecureRandomNumberGenerator();
         }
 
         @Bean
@@ -50,7 +50,7 @@ public class PasswordEncryptorTest {
     }
 
     @Autowired
-    SaltGenerator saltGenerator;
+    RandomNumberGenerator randomNumberGenerator;
 
     @Autowired
     PasswordEncryptor passwordEncryptor;
@@ -58,7 +58,7 @@ public class PasswordEncryptorTest {
     @Test
     @Repeat(100)
     public void encryptTest() {
-        byte[] salt = saltGenerator.generateSalt();
+        byte[] salt = randomNumberGenerator.generate();
         String inputPassword = "password";
         String encryptedPassword = passwordEncryptor.encrypt(inputPassword, salt);
         byte[] hash = BaseEncoding.base64().decode(encryptedPassword);
@@ -69,7 +69,7 @@ public class PasswordEncryptorTest {
     @Test
     public void matchsTest() {
         for (int i = 0, l = 100; i < l; i++) {
-            byte[] salt = saltGenerator.generateSalt();
+            byte[] salt = randomNumberGenerator.generate();
             String password = "password_" + i;
             String hash = passwordEncryptor.encrypt(password, salt);
             System.out.println("[" + i + "] " + password + " vs " + hash + " w/ " + BaseEncoding.base64().encode(salt));

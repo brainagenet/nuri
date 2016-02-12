@@ -45,22 +45,4 @@ public class TotpUtils {
         return BaseEncoding.base32().encode(secureRandom.generate());
     }
 
-    public static void main(String[] args) {
-        String secret = TotpUtils.getSecret();
-        System.out.println("TotpUtils.main : secret = " + secret);
-
-        Totp totp = new Totp(secret);
-        String currentOtp = totp.now();
-        System.out.println("TotpUtils.main : current otp = " + currentOtp);
-
-        String uri = totp.uri("brainage.net", "ms29.seo@brainage.net");
-        System.out.println("TotpUtils.main : otp auth uri = " + uri);
-
-        String qrcodeUrl = TotpUtils.qrcodeUri(uri);
-        System.out.println("TotpUtils.main : qrcode uri = " + qrcodeUrl);
-
-        qrcodeUrl = TotpUtils.qrcodeUri(300, uri);
-        System.out.println("TotpUtils.main : qrcode uri = " + qrcodeUrl);
-    }
-
 }
